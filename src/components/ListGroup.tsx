@@ -1,15 +1,13 @@
 function ListGroup() {
   let items = ["New York", "San Francisco", "Toyko", "London", "Paris"];
-  items = [];
-  let message = items.map((item) => <li key={item}>{item}</li>);
 
   // advanatages of using functions over variables is that we can pas parameters
   const getMessage = () => {
-    return items.length === 0 ? <p>No Item Found</p>:null
+    return items.length === 0 ? <p>No Item Found</p> : null;
   };
 
   // returns a JSX Markup
-/* Conditional rendering */
+  /* Conditional rendering */
   // if (items.length === 0)
   //   return (
   //     <>
@@ -25,11 +23,19 @@ function ListGroup() {
      */
     <>
       <h1>List</h1>
-{/* {items.length === 0 ? <p>No Item Found</p>:null} */}
-{items.length === 0 && <p>No Item Found</p>}
+      {/* {items.length === 0 ? <p>No Item Found</p>:null} */}
+      {items.length === 0 && <p>No Item Found</p>}
       <ul className="list-group">
-        {items.map((item) => (
-          <li key={item}>{item}</li>
+        {items.map((item,index) => (
+          <li
+            className="list-group-item"
+            key={item}
+            onClick={(event) => {
+              console.log(event);
+            }}
+          >
+            {item}
+          </li>
         ))}
       </ul>
     </>
