@@ -1,9 +1,9 @@
 // import target components
-import Message from './Message';
+import ListGroup from './components/ListGroup';
 
 // app component
 function App(){
-  return <div><Message/></div>
+  return <div><ListGroup/></div>
 }
 
 // export app component so that it can be used
