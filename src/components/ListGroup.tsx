@@ -1,19 +1,38 @@
 function ListGroup() {
-  // Describing the UI
-  // JSX(Javascript XML): Syntax combining JS and HTML
-  //JSX: Javascript XML
-  // creating dynamic content
+  let items = ["New York", "San Francisco", "Toyko", "London", "Paris"];
+  items = [];
+  let message = items.map((item) => <li key={item}>{item}</li>);
+
+  // advanatages of using functions over variables is that we can pas parameters
+  const getMessage = () => {
+    return items.length === 0 ? <p>No Item Found</p>:null
+  };
+
+  // returns a JSX Markup
+/* Conditional rendering */
+  // if (items.length === 0)
+  //   return (
+  //     <>
+  //       <h1>List</h1>
+  //       <p>No item found</p>
+  //     </>
+  //   );
+
   return (
-    <div>
-        <h1>List</h1>
-        <ul className="list-group">
-          <li className="list-group-item">An item</li>
-          <li className="list-group-item">A second item</li>
-          <li className="list-group-item">A third item</li>
-          <li className="list-group-item">A fourth item</li>
-          <li className="list-group-item">And a fifth one</li>
-        </ul>
-    </div>
+    /**
+     *
+     * <></> or <Fragment></Fragment> are tactics used by react to return a multiple elements
+     */
+    <>
+      <h1>List</h1>
+{/* {items.length === 0 ? <p>No Item Found</p>:null} */}
+{items.length === 0 && <p>No Item Found</p>}
+      <ul className="list-group">
+        {items.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+    </>
   );
 }
 
